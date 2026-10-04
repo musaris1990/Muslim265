@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เนื้อหา | บทเรียนการแก้ปัญหา ป.3</title>
+<style>
+:root{
+  --ink:#24324a;
+  --muted:#61708a;
+  --bg:#f6fbff;
+  --card:#ffffff;
+  --primary:#5b7cfa;
+  --primary2:#7b61ff;
+  --green:#36b37e;
+  --yellow:#ffd166;
+  --orange:#ff9f43;
+  --pink:#ff6b9d;
+  --line:#dfe8f5;
+  --shadow:0 12px 28px rgba(44,66,100,.12);
+  --radius:22px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Noto Sans Thai","Tahoma","Arial",sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, #e6f4ff 0, transparent 26%),
+    radial-gradient(circle at 90% 12%, #fff2da 0, transparent 25%),
+    var(--bg);
+  line-height:1.7;
+}
+a{color:inherit;text-decoration:none}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  max-width:1180px;margin:auto;padding:12px 18px;
+  display:flex;gap:10px;align-items:center;justify-content:space-between;
+}
+.brand{
+  display:flex;align-items:center;gap:10px;font-weight:900;min-width:max-content;
+}
+.logo{
+  width:44px;height:44px;border-radius:14px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:#fff;font-size:25px;box-shadow:0 8px 16px rgba(91,124,250,.24)
+}
+.menu{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.menu a{
+  padding:8px 11px;border-radius:12px;font-weight:700;font-size:14px;color:var(--muted);
+}
+.menu a:hover,.menu a.active{background:#edf2ff;color:#405ce8}
+main{max-width:1180px;margin:0 auto;padding:32px 18px 56px}
+.hero{
+  display:grid;grid-template-columns:1.25fr .75fr;gap:22px;align-items:stretch
+}
+.card{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow);padding:26px
+}
+.hero-main{
+  padding:42px 38px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#fff,#eef4ff 66%,#efeaff);
+}
+.hero-main:after{
+  content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+  right:-65px;bottom:-70px;background:#ffd16655;
+}
+.kicker{
+  display:inline-flex;gap:8px;align-items:center;
+  padding:6px 11px;border-radius:999px;background:#fff2cf;color:#8a5c00;font-weight:900;font-size:13px
+}
+h1,h2,h3{line-height:1.25;margin:0 0 14px}
+h1{font-size:clamp(34px,6vw,56px)}
+h2{font-size:30px}
+h3{font-size:20px}
+.subtitle{font-size:19px;color:var(--muted);max-width:680px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:0;border-radius:14px;padding:11px 15px;font-weight:900;cursor:pointer;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;
+  box-shadow:0 8px 16px rgba(91,124,250,.2);transition:.15s transform
+}
+.btn:hover{transform:translateY(-2px)}
+.btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.btn.green{background:linear-gradient(135deg,#2fb57b,#2da17a)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.figure{
+  min-height:280px;border-radius:22px;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,#e8f8ff,#fff6d8);
+  border:1px dashed #c6d8ef;position:relative;overflow:hidden
+}
+.big-emoji{font-size:130px;filter:drop-shadow(0 10px 10px rgba(0,0,0,.12))}
+.stickers{position:absolute;inset:0;pointer-events:none}
+.sticker{position:absolute;font-size:28px}
+.sticker.one{top:18px;left:22px}.sticker.two{top:28px;right:28px}.sticker.three{bottom:20px;left:30px}.sticker.four{bottom:20px;right:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.section{margin-top:24px}
+.iconbox{
+  width:48px;height:48px;border-radius:15px;background:#eef2ff;display:grid;place-items:center;font-size:26px;
+}
+.row-head{display:flex;gap:13px;align-items:flex-start}
+.list{margin:8px 0 0;padding-left:24px}
+.pill{
+  display:inline-block;padding:5px 10px;border-radius:999px;background:#ecfbf5;color:#188257;font-weight:800;font-size:13px
+}
+.info{
+  padding:14px 16px;border-radius:16px;background:#f7f9fc;border:1px solid var(--line);margin:10px 0;
+}
+.note{
+  background:#fff8df;border:1px solid #f2d98d;border-left:7px solid var(--yellow);
+  border-radius:16px;padding:14px 16px
+}
+.choice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.choice{
+  text-align:left;border:2px solid var(--line);background:#fff;border-radius:15px;padding:14px;cursor:pointer;font-weight:800;
+}
+.choice:hover{border-color:#a9baff;background:#f7f9ff}
+.choice.selected{border-color:var(--primary);background:#eef2ff}
+.feedback{margin-top:12px;padding:12px 14px;border-radius:14px;display:none;font-weight:800}
+.feedback.good{display:block;background:#eafaf2;color:#17754e;border:1px solid #bde8d2}
+.feedback.bad{display:block;background:#fff0f2;color:#a43a52;border:1px solid #f4c6d0}
+textarea,input[type="text"]{
+  width:100%;border:2px solid var(--line);border-radius:14px;padding:12px 14px;
+  font:inherit;outline:none;background:#fff
+}
+textarea:focus,input[type="text"]:focus{border-color:#9eb0ff;box-shadow:0 0 0 4px #eef2ff}
+.small{font-size:14px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.step{
+  padding:18px;border-radius:18px;background:#fff;border:1px solid var(--line);box-shadow:0 6px 18px rgba(44,66,100,.07)
+}
+.step .num{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  background:#edf1ff;color:#475de5;font-weight:900;margin-bottom:10px
+}
+.table-wrap{overflow:auto}
+table{border-collapse:collapse;width:100%;background:#fff;border-radius:16px;overflow:hidden}
+th,td{padding:12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#f3f6ff}
+.quiz-q{padding:20px;border:1px solid var(--line);border-radius:18px;background:#fff;margin:14px 0}
+.quiz-q h3{margin-bottom:8px}
+.score{
+  font-size:28px;font-weight:900;text-align:center;padding:22px;border-radius:18px;background:#eef7ff;border:1px solid #cde3f7;margin-top:16px;display:none
+}
+.author{
+  display:grid;grid-template-columns:.75fr 1.25fr;gap:22px;align-items:stretch
+}
+.author-photo{
+  display:flex;justify-content:center;align-items:center;
+  background:linear-gradient(145deg,#fff4cf,#eaf4ff);min-height:420px;position:relative;overflow:hidden
+}
+.author-photo img{
+  width:min(82%,380px);aspect-ratio:3/4;object-fit:cover;object-position:center 20%;
+  border-radius:28px;border:10px solid #fff;box-shadow:0 18px 35px rgba(38,63,105,.2);
+  filter:saturate(1.03) contrast(1.02)
+}
+.comic-bubble{
+  position:absolute;left:22px;top:22px;background:#fff;border:3px solid var(--ink);
+  border-radius:18px;padding:10px 13px;font-weight:900;box-shadow:4px 4px 0 var(--ink);
+}
+.footer{text-align:center;color:var(--muted);font-size:13px;margin-top:24px}
+hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+@media (max-width:900px){
+  .nav{align-items:flex-start;flex-direction:column}
+  .menu{justify-content:flex-start}
+  .hero,.author,.grid-3,.steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  .hero,.author,.grid-2,.grid-3,.steps,.choice-grid{grid-template-columns:1fr}
+  .hero-main{padding:30px 22px}
+  main{padding:22px 12px 44px}
+  .card{padding:20px}
+  h1{font-size:40px}
+  .menu a{font-size:13px;padding:7px 9px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <nav class="nav">
+    <a class="brand" href="index.html"><span class="logo">🧠</span><span>การแก้ปัญหา<br><small class="small">ระดับชั้น ป.3</small></span></a>
+    <div class="menu"><a href="index.html" class="">🏠 หน้าแรก</a><a href="objectives.html" class="">🎯 จุดประสงค์</a><a href="guide.html" class="">💡 คำแนะนำ</a><a href="lesson.html" class="active">📚 เนื้อหา</a><a href="activities.html" class="">🎮 กิจกรรม</a><a href="quiz.html" class="">📝 แบบทดสอบ</a><a href="author.html" class="">👨‍💻 ผู้จัดทำ</a></div>
+  </nav>
+</header>
+<main>
+
+<section class="card">
+  <span class="kicker">📚 เนื้อหา</span>
+  <h1>การแก้ปัญหาแบบเป็นขั้นตอน</h1>
+  <p class="subtitle">การแก้ปัญหาที่ดี คือการคิดก่อนลงมือทำ และตรวจสอบผลหลังทำเสมอ</p>
+</section>
+<section class="section steps">
+  <div class="step"><div class="num">1</div><h3>รู้ปัญหา 🔎</h3><p>ตั้งคำถามว่า <strong>“เกิดอะไรขึ้น?”</strong> และ <strong>“เราต้องการอะไร?”</strong></p></div>
+  <div class="step"><div class="num">2</div><h3>วางแผน 🗺️</h3><p>คิดวิธีแก้ปัญหาและเรียงลำดับขั้นตอนก่อนลงมือทำ</p></div>
+  <div class="step"><div class="num">3</div><h3>ลงมือทำ 🛠️</h3><p>ทำตามแผนอย่างระมัดระวัง ถ้าเจออุปสรรคให้หยุดคิดและปรับแผน</p></div>
+  <div class="step"><div class="num">4</div><h3>ตรวจสอบ ✅</h3><p>ดูผลลัพธ์ว่าแก้ปัญหาได้หรือยัง ถ้ายังไม่ดีให้ลองวิธีอื่น</p></div>
+</section>
+<section class="section card">
+  <h2>ตัวอย่าง: “หนังสือเรียนหาย” 📚</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>ขั้นตอน</th><th>ตัวอย่างความคิด</th></tr>
+    <tr><td>1. รู้ปัญหา</td><td>หนังสือคณิตศาสตร์ที่ต้องใช้วันนี้หาไม่เจอ</td></tr>
+    <tr><td>2. วางแผน</td><td>คิดว่าครั้งสุดท้ายวางไว้ที่ไหน แล้วค้นทีละจุด</td></tr>
+    <tr><td>3. ลงมือทำ</td><td>ตรวจโต๊ะเรียน กระเป๋า ชั้นหนังสือ และที่บ้านตามลำดับ</td></tr>
+    <tr><td>4. ตรวจสอบ</td><td>เมื่อพบหนังสือแล้ว ตรวจว่าตรงกับเล่มที่ต้องใช้หรือไม่</td></tr>
+  </table>
+  </div>
+</section>
+<section class="section grid-2">
+  <div class="card"><h3>💭 คำถามชวนคิด</h3><p>ถ้าค้นหาแล้วไม่พบหนังสือ ควรทำอะไรต่อ?</p><p class="small">คำตอบที่ดีอาจเป็น “ย้อนดูขั้นตอนเดิม / ขอความช่วยเหลือ / ลองวิธีค้นหาใหม่”</p></div>
+  <div class="card"><h3>🌟 จำง่าย ๆ</h3><p style="font-size:22px;font-weight:900;text-align:center">ปัญหา → แผน → ลงมือทำ → ตรวจสอบ</p></div>
+</section>
+<div class="actions"><a class="btn" href="activities.html">ไปทำกิจกรรม 🎮</a></div>
+
+<div class="footer">บทเรียนการแก้ปัญหา ระดับชั้นประถมศึกษาปีที่ 3 • ออกแบบสำหรับการเรียนรู้แบบสนุกและลงมือทำ</div>
+</main>
+
+</body>
+</html>
